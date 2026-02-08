@@ -39,7 +39,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Info</h3>
             <p className="text-emerald-100">Email: info@elitemantours.com</p>
-            <p className="text-emerald-100">Phone: +1 (555) 123-4567</p>
+            <p className="text-emerald-100">Phone: +233 559964958 </p>
             <p className="text-emerald-100">
               Address: 123 Adventure St, Explorer City
             </p>

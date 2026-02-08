@@ -1,6 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Swim from "../assets/images/swim1.jpg";
+import Boat from "../assets/images/boat.jpg";
+import Climb from "../assets/images/climb2.jpg";
+import Gliding from "../assets/images/gliding1.jpg";
+import Jungle from "../assets/images/jungle.webp";
 
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -12,6 +17,7 @@ export default function HeroCarousel() {
       subtitle: "Experience breathtaking heights and unforgettable views",
       emoji: "⛰️",
       gradient: "from-blue-600 via-blue-700 to-blue-800",
+      image: Climb,
     },
     {
       id: 2,
@@ -19,6 +25,7 @@ export default function HeroCarousel() {
       subtitle: "Explore the mysteries of the ocean depths",
       emoji: "🤿",
       gradient: "from-cyan-500 via-blue-600 to-teal-700",
+      image: Swim,
     },
     {
       id: 3,
@@ -26,6 +33,7 @@ export default function HeroCarousel() {
       subtitle: "Feel the ultimate rush of flying through the sky",
       emoji: "🪂",
       gradient: "from-purple-600 via-pink-600 to-red-600",
+      image: Gliding,
     },
     {
       id: 4,
@@ -33,6 +41,7 @@ export default function HeroCarousel() {
       subtitle: "Discover exotic wildlife and ancient mysteries",
       emoji: "🌿",
       gradient: "from-green-600 via-emerald-600 to-teal-700",
+      image: Jungle,
     },
     {
       id: 5,
@@ -40,6 +49,7 @@ export default function HeroCarousel() {
       subtitle: "Navigate thrilling white-water rapids",
       emoji: "🚣",
       gradient: "from-amber-500 via-orange-600 to-red-700",
+      image: Boat,
     },
   ];
 
@@ -68,13 +78,16 @@ export default function HeroCarousel() {
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute w-full h-full transition-opacity duration-1000 ease-in-out ${
+          className={`absolute w-full h-full transition-opacity duration-1000 ease-in-out bg-center bg-cover ${
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
+          style={{
+            backgroundImage: `url(${slide.image.src})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
         >
-          <div
-            className={`bg-gradient-to-br ${slide.gradient} w-full h-full flex items-center justify-center relative overflow-hidden`}
-          >
+          <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
             {/* Animated background pattern */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%27 height=%2760%27 viewBox=%270 0 60 60%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27none%27 fill-rule=%27evenodd%27%3E%3Cg fill=%27%23ffffff%27 fill-opacity=%270.1%27%3E%3Cpath d=%27M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
@@ -96,8 +109,7 @@ export default function HeroCarousel() {
               </div>
             </div>
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black opacity-20"></div>
+            {/* removed color overlay to show image colors */}
           </div>
         </div>
       ))}
