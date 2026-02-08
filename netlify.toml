@@ -1,0 +1,10 @@
+[build]
+command = "npm run build"
+publish = ".netlify/output"
+functions = "netlify/functions"
+
+[[plugins]]
+package = "@netlify/plugin-nextjs"
+
+[context.production.environment]
+# Add any production env vars here, e.g. NEXT_PUBLIC_API_URL = "https://..."
